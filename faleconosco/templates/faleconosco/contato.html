@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova AV2 - Fale Conosco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'faleconosco/styles.css' %}">
+</head>
+<body>
+    <header class="page-header">
+        <p class="student-name">Thiago Gonçalves Perim</p>
+        <p class="student-id">2024101607</p>
+        <p class="exam-title">PROVA AV2</p>
+    </header>
+
+    {% if success_message or error_message %}
+    <section class="feedback">
+        <div class="feedback-card {% if success_message %}success{% else %}error{% endif %}">
+            <p>{{ success_message|default:error_message }}</p>
+        </div>
+    </section>
+    {% endif %}
+
+    <main class="container">
+        <section class="info-column">
+            <h1>Entre em contato utilizando o formulário.</h1>
+            <p>Envie sua dúvida, sugestão ou solicitação e retornaremos o mais breve possível com uma resposta.</p>
+        </section>
+
+        <section class="form-column">
+            <form method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="field-errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="{{ form.nome.id_for_label }}">Nome*</label>
+                    {{ form.nome }}
+                    <small>Máximo de 240 caracteres.</small>
+                    {{ form.nome.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email*</label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.telefone.id_for_label }}">Telefone*</label>
+                    {{ form.telefone }}
+                    {{ form.telefone.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.documento.id_for_label }}">Documento</label>
+                    {{ form.documento }}
+                    <small>Extensões permitidas: .PDF</small>
+                    {{ form.documento.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.mensagem.id_for_label }}">Mensagem*</label>
+                    {{ form.mensagem }}
+                    <small>Máximo de 1000 caracteres.</small>
+                    {{ form.mensagem.errors }}
+                </div>
+
+                <button type="submit" class="submit-button">ENVIAR</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

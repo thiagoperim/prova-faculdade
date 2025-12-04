@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F4F1E1;
+    font-family: 'Outfit', sans-serif;
+    color: #000;
+}
+
+.page-header {
+    text-align: center;
+    margin: 32px 0 16px;
+    line-height: 1.4;
+}
+
+.student-name,
+.student-id,
+.exam-title {
+    margin: 4px 0;
+}
+
+.student-name {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.exam-title {
+    font-weight: 700;
+    color: #009DB7;
+    font-size: 16px;
+}
+
+.feedback {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.feedback-card {
+    background: #fff;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    max-width: 520px;
+    text-align: center;
+    width: 90%;
+}
+
+.feedback-card.success {
+    border: 2px solid #009DB7;
+}
+
+.feedback-card.error {
+    border: 2px solid #c0392b;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.info-column {
+    flex: 1;
+}
+
+.info-column h1 {
+    color: #009DB7;
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.info-column p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+.form-column {
+    flex: 1;
+}
+
+form {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #009DB7;
+}
+
+.input-field,
+.textarea-field,
+.file-input {
+    border: none;
+    border-bottom: 2px solid #009DB7;
+    padding: 10px 8px;
+    font-size: 15px;
+    background: #fdfdfd;
+}
+
+.textarea-field {
+    resize: vertical;
+}
+
+.file-input {
+    padding: 6px 0;
+}
+
+.form-group small {
+    color: #555;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.field-errors,
+.form-group .errorlist {
+    color: #c0392b;
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+}
+
+.submit-button {
+    width: 100%;
+    background-color: #009DB7;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.submit-button:hover {
+    box-shadow: 0 6px 16px rgba(0, 157, 183, 0.25);
+}
+
+.submit-button:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .info-column h1,
+    .info-column p {
+        text-align: center;
+    }
+}
