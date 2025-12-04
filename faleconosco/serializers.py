@@ -4,7 +4,7 @@ from .models import Contato
 
 
 class ContatoSerializer(serializers.ModelSerializer):
-    documento = serializers.FileField(source='documento', read_only=True)
+    documento = serializers.FileField(read_only=True)
 
     class Meta:
         model = Contato
